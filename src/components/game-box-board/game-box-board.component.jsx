@@ -1,6 +1,5 @@
 import React from 'react';
 import './game-box-board.styles.scss';
-
 import GameBoxSquare from '../game-box-square/game-box-square.component'
 
 class GameBoxBoard extends React.Component {
@@ -9,24 +8,20 @@ class GameBoxBoard extends React.Component {
         return (<GameBoxSquare value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />)
     }
 
-    render() { 
+    render() {
+        let squares_index = [0,3,6];
+
         return (
             <div>
-                <div className="border-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="border-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="border-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                {
+                    squares_index.map((index) => (
+                        <div key={index} className="border-row">
+                            {this.renderSquare(index)}
+                            {this.renderSquare(index + 1)}
+                            {this.renderSquare(index + 2)}
+                        </div>
+                    ))
+                }
             </div>
         )
     }

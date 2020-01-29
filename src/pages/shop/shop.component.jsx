@@ -22,6 +22,7 @@ class ShopPage extends React.Component {
     loading: true
   };
 
+  
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -59,8 +60,7 @@ class ShopPage extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updateCollections: collectionsMap =>
-    dispatch(updateCollections(collectionsMap))
+  updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap))
 });
 
 export default connect(

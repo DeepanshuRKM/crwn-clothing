@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './game.styles.scss';
 
 import GameBoard from '../../components/game-box-board/game-box-board.component'
@@ -7,6 +8,7 @@ class GamePage extends React.Component {
 
     constructor(props) {
         super(props);
+        
         this.state = {
             xIsNext: true,
             stepNumber: 0,

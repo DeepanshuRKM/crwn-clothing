@@ -42,7 +42,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) =>{
   const collectionRef = firestore.collection(collectionKey);
-  console.log(collectionRef);
 
   const batch = firestore.batch();
   objectsToAdd.forEach(obj => {
@@ -54,9 +53,9 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) =>{
 }
 
 export const convertCollectionsSnapshotToMap = ( collections ) => {
+  console.log("collections " , collections);
   const transformedCollection = collections.docs.map(doc => {
-    const { title, items } = doc.data();
-
+    const { title, items } = doc.data()
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
